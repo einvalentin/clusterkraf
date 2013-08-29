@@ -99,7 +99,7 @@ class ClustersBuilder {
 			for (InputPoint point : relevantInputPointsList) {
 				boolean addedToExistingCluster = false;
 				for (ClusterPoint clusterPoint : clusteredPoints) {
-					if (clusterPoint.getPixelDistanceFrom(point) <= options.getPixelDistanceToJoinCluster()) {
+					if (options.isClusteringEnabled() && clusterPoint.getPixelDistanceFrom(point) <= options.getPixelDistanceToJoinCluster()) {
 						clusterPoint.add(point);
 						addedToExistingCluster = true;
 						break;

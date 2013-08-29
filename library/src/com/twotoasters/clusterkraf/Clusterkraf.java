@@ -131,18 +131,24 @@ public class Clusterkraf {
 		 * 
 		 * @see http://code.google.com/p/gmaps-api-issues/issues/detail?id=4703
 		 */
-		if (currentMarkers != null) {
-			for (Marker marker : currentMarkers) {
-				marker.remove();
-			}
+		// if (currentMarkers != null) {
+		// for (Marker marker : currentMarkers) {
+		// marker.remove();
+		// }
+		// }
+		// This is a dirty workaround that probably helps against stale markers
+		// on the map.
+		GoogleMap map = mapRef.get();
+		if (map != null) {
+			map.clear();
 		}
-		
+
 		currentClusters = null;
 		currentClusterPointsByMarker = null;
 		currentMarkers = null;
 		previousClusters = null;
 		previousMarkers = null;
-		
+
 		points.clear();
 	}
 

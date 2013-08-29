@@ -108,6 +108,11 @@ public class Options {
 	private long clusteringOnCameraChangeListenerDirtyLifetimeMillis = 200l;
 
 	/**
+	 * Flag to disable clustering.
+	 */
+	private boolean clusteringEnabled = true;
+
+	/**
 	 * 
 	 */
 	private ProcessingListener processingListener;
@@ -360,5 +365,13 @@ public class Options {
 
 	public enum SinglePointInfoWindowClickBehavior {
 		HIDE_INFO_WINDOW, NO_OP
+	}
+
+	public boolean isClusteringEnabled() {
+		return clusteringEnabled;
+	}
+
+	public void setClusteringEnabled(boolean clusteringEnabled) {
+		this.clusteringEnabled = clusteringEnabled;
 	}
 }
